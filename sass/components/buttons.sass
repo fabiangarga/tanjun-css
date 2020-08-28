@@ -1,0 +1,20 @@
+@import "sass/core/variables"
+
+button
+  background-color: transparent
+  cursor: pointer
+  padding: map_get($global-padding, "components")
+  border-width: 1px
+  @extend %extend-button!optional
+
+$buttons-prefix : "button"!default
+// Buttons properties to be added
+$buttons-property: ("border-color": "")!default
+// Values to be added as a buttons helper, in the default example we are just adding primary and secondary button types
+$buttons-values: ("primary": black, "secondary" : red)!default
+
+@each $buttons-values-key, $buttons-values-value in $buttons-values
+  .#{map_get($global-configs, "prefix")}#{$buttons-prefix}-#{$buttons-values-key}
+    @each $buttons-property-key, $buttons-property-value in $buttons-property
+      #{$buttons-property-key} : $buttons-values-value!important
+    @extend %extend-#{map_get($global-configs, "prefix")}#{$buttons-prefix}-#{$buttons-values-key}!optional

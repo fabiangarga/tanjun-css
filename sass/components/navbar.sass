@@ -1,0 +1,59 @@
+@import "sass/core/variables"
+
+.#{map_get($global-configs, "prefix")}navbar-fixed
+  position: fixed
+  top: 0
+  bottom: 0
+  width: map_get($global-widths, "sidebar-small")
+  @media (min-width: map_get($global-breakpoint, "small"))
+    width: map_get($global-widths, "sidebar")
+  & > *
+    display: block
+  a
+    padding: map_get($global-padding, "components")
+  @extend %extend-navbar-fixed!optional
+
+.#{map_get($global-configs, "prefix")}navbar
+  display: flex
+  & > *
+    &.to-right
+      display: flex
+      margin-left: auto
+  a
+    padding: map_get($global-padding, "components")
+  &-fixed-left
+    @extend .#{map_get($global-configs, "prefix")}navbar-fixed
+    left: 0
+    border-right: 1px solid map_get($global-palette, "primary")
+  &-fixed-right
+    @extend .#{map_get($global-configs, "prefix")}navbar-fixed
+    right: 0
+    border-left: 1px solid map_get($global-palette, "primary")
+  @extend %extend-navbar!optional
+
+.push
+  &-bottom
+    margin-top: auto
+  &-right
+    margin-left: auto
+
+// Class applied to the body
+.#{map_get($global-configs, "prefix")}has-navbar-fixed
+  width: calc(100% - #{map_get($global-widths, "sidebar-small")})
+  @media (min-width: map_get($global-breakpoint, "small"))
+    width: calc(100% - #{map_get($global-widths, "sidebar")})
+  &-left > section
+    @extend .#{map_get($global-configs, "prefix")}has-navbar-fixed
+    margin-left: map_get($global-widths, "sidebar-small")
+    @media (min-width: map_get($global-breakpoint, "small"))
+      margin-left: map_get($global-widths, "sidebar")
+  &-right > section
+    @extend .#{map_get($global-configs, "prefix")}has-navbar-fixed
+    margin-right: map_get($global-widths, "sidebar-small")
+    @media (min-width: map_get($global-breakpoint, "small"))
+      margin-right: map_get($global-widths, "sidebar")
+
+.#{map_get($global-configs, "prefix")}has-navbar-fixed-left.#{map_get($global-configs, "prefix")}has-navbar-fixed-right
+  width: calc(100% - #{map_get($global-widths, "sidebar-small")})
+  @media (min-width: map_get($global-breakpoint, "small"))
+    width: calc(100% - #{map_get($global-widths, "sidebar")})

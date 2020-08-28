@@ -1,0 +1,12 @@
+@import "sass/core/variables"
+
+.#{map_get($global-configs, "prefix")}grid
+  @extend %extend-grid!optional
+  @media (min-width: map_get($global-breakpoint, "small"))
+    display: flex
+    flex-direction: row
+    & > *
+      display: flex
+      flex-basis: 0
+      flex-grow: 1
+      flex-shrink: 1

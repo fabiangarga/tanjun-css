@@ -1,0 +1,7 @@
+@each $breakpoint-key, $breakpoint-value in $global-breakpoint {
+  //@mixin breakpoint-until-#{$breakpoint-key}() {
+  //  @media (max-width: $breakpoint-value) {
+  //    @content
+  //  }
+  //}
+}

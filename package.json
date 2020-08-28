@@ -1,0 +1,38 @@
+{
+  "name": "tanjun-css",
+  "version": "0.0.0",
+  "description": "Simple CSS framework based on lines",
+  "main": "tanjun.sass",
+  "scripts": {
+    "build:sass": "node-sass --output-style expanded --source-map true tanjun.sass dist/css/tanjun.css",
+    "build:docs": "node-sass --output-style compressed --source-map true docs/sass/docs.sass dist/site/assets/css/docs.css",
+    "build-prod:sass": "node-sass --output-style compressed --source-map false tanjun.sass dist/css/tanjun.css",
+    "build:docs-html": "npx @11ty/eleventy --input=docs --output=dist/site",
+    "start:devel": "npm run build:sass -- --watch",
+    "start:devel-docs": "npm run build:docs -- --watch",
+    "start:devel-docs-html": "npm run build:docs-html -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabiangarga/tanjun-css.git"
+  },
+  "keywords": [
+    "css",
+    "sass",
+    "framework",
+    "css",
+    "lines"
+  ],
+  "author": "Fabian Susumo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fabiangarga/tanjun-css/issues"
+  },
+  "homepage": "https://github.com/fabiangarga/tanjun-css#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy-navigation": "^0.1.6",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "node-sass": "^4.14.1"
+  }
+}

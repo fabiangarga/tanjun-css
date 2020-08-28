@@ -1,0 +1,11 @@
+@import "../core/variables"
+
+.#{map_get($global-configs, "prefix")}is
+  &-hidden
+    display: none!important
+  &-mobile-only
+    @media (min-width: map_get($global-breakpoint, "small"))
+      display: none!important
+  &-desktop-only
+    @media (max-width: map_get($global-breakpoint, "small"))
+      display: none!important

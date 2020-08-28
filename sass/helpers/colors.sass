@@ -1,0 +1,10 @@
+$colors-prefix : "has"!default
+// CSS property to include in the colors
+$colors-property: ("color": "text", "background": "background")!default
+// Values to be added as a colors helper, in the default example we are just assigning very basic colors
+$colors-values: ("black": black, "red" : red, "green": green)!default
+
+@each $colors-property-key, $colors-property-value in $colors-property
+  @each $colors-values-key, $colors-values-value in $colors-values
+    .#{map_get($global-configs, "prefix")}#{$colors-prefix}-#{$colors-property-value}-#{$colors-values-key}
+      #{$colors-property-key}: $colors-values-value!important

@@ -1,0 +1,50 @@
+@import "sass/core/variables"
+
+%extend-navbar-fixed
+  overflow: hidden
+  display: flex
+  flex-direction: column
+  .push-bottom
+    background-color: map_get($global-palette, "primary")
+    a
+      color: white
+      padding: 10px
+      display: block
+      background:  map_get($global-palette, "primary")
+      border-top: 1px solid
+  a
+    border-bottom: 1px solid  map_get($global-palette, "primary")
+    color: map_get($global-palette, "primary")
+    text-decoration: none
+    text-overflow: ellipsis
+    white-space: nowrap
+    text-align: center
+    background-color: white
+    &.active
+      & + .navbar-subitem
+        display: block
+    &:hover, &.active
+      color: map_get($global-palette, "secondary")
+    &:last-child
+      border-bottom: none
+    span
+      display: none
+    @media (min-width: map_get($global-breakpoint, "small"))
+      text-align: left
+      font-size: 1.2rem
+      span
+        display: inline-block
+
+.navbar-subitem
+  display: none
+  border-bottom: 1px solid map_get($global-palette, "primary")
+  &:has(> a)
+    display: block
+  &.active
+    display: block
+  a
+    font-size: 0.9rem
+    display: block
+    padding-left: 25px
+    border-bottom: none
+    line-height: 1rem

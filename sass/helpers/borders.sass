@@ -1,0 +1,43 @@
+@import "../core/variables"
+
+.#{map_get($global-configs, "prefix")}bordered
+  border: 1px solid map_get($global-palette, "primary")
+  @extend %extend-bordered!optional
+  &-grid
+    @extend .#{map_get($global-configs, "prefix")}bordered
+    & > *
+      @media (min-width: map_get($global-breakpoint, "small"))
+        border-left: 1px solid map_get($global-palette, "primary")
+        &:first-child
+          border-left: none
+  &-container
+    @extend .#{map_get($global-configs, "prefix")}bordered
+    & > *
+      border-bottom: 1px solid map_get($global-palette, "primary")
+      &:last-child
+        border-bottom: none
+    & > .#{map_get($global-configs, "prefix")}grid > *
+      @media (min-width: map_get($global-breakpoint, "small"))
+        border-left: 1px solid map_get($global-palette, "primary")
+        &:first-child
+          border-left: none
+
+.#{map_get($global-configs, "prefix")}has
+  &-border-bottom
+    border-bottom: 1px solid map_get($global-palette, "primary")
+  &-border-left
+    border-left: 1px solid map_get($global-palette, "primary")
+  &-border-right
+    border-right: 1px solid map_get($global-palette, "primary")
+  &-border-top
+    border-top: 1px solid map_get($global-palette, "primary")
+
+.#{map_get($global-configs, "prefix")}no
+  &-border-bottom
+    border-bottom: none!important
+  &-border-left
+    border-left: none!important
+  &-border-right
+    border-right: none!important
+  &-border-top
+    border-top: none!important
